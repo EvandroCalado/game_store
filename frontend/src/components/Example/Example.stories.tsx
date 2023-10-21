@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
-import Example, { ExampleProps } from '.';
+import { Example, ExampleProps } from '.';
 
 export default {
   title: 'Components/Example',
