@@ -1,6 +1,6 @@
 import { LoginProps } from '../components/auth/LoginForm/LoginForm.form';
 import { RegisterProps } from '../components/auth/RegisterForm/RegisterForm.form';
-import { ENV } from '../utils/';
+import { ENV } from '../utils';
 
 export class Auth {
   async register(valuers: RegisterProps) {
