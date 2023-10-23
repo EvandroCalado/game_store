@@ -1,5 +1,14 @@
 export const ENV = {
-  SERVER_HOST: process.env.SERVER_HOST || 'http://localhost:1337',
-  API_URL: process.env.API_URL || 'http://localhost:1337api',
-  ENDPOINTS: {},
+  SERVER_HOST: process.env.NEXT_PUBLIC_SERVER_HOST || 'http://localhost:1337',
+  API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337/api',
+  ENDPOINTS: {
+    AUTH: {
+      REGISTER: process.env.NEXT_PUBLIC_REGISTER,
+      LOGIN: process.env.NEXT_PUBLIC_LOGIN,
+    },
+    USERS: {
+      ME: process.env.NEXT_PUBLIC_ME,
+    },
+  },
+  TOKEN: 'token',
 };
