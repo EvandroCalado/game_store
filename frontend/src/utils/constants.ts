@@ -8,8 +8,10 @@ export const ENV = {
     },
     USERS: {
       ME: process.env.NEXT_PUBLIC_ME,
+      UPDATE: process.env.NEXT_PUBLIC_UPDATE,
     },
     PLATFORM: process.env.NEXT_PUBLIC_PLATFORM,
+    ADDRESS: process.env.NEXT_PUBLIC_ADDRESS,
   },
   TOKEN: 'token',
 };
