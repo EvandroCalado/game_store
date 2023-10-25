@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
+import { AuthProvider } from '../src/contexts';
 import '../src/scss/globals.scss';
 
 const preview: Preview = {
@@ -17,9 +18,9 @@ const preview: Preview = {
 
 export const decorators = [
   (Story) => (
-    <div>
+    <AuthProvider>
       <Story />
-    </div>
+    </AuthProvider>
   ),
 ];
 
