@@ -695,7 +695,6 @@ export interface ApiAddressAddress extends Schema.CollectionType {
     address: Attribute.String;
     city: Attribute.String & Attribute.Required;
     state: Attribute.String & Attribute.Required;
-    contry: Attribute.String & Attribute.Required;
     postalCode: Attribute.String & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     user: Attribute.Relation<
