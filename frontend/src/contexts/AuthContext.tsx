@@ -1,39 +1,54 @@
 import { createContext, useEffect, useState } from 'react';
 import { Token, User } from '../api';
+import { TypeUser } from '../types';
 
+// TODO: Consertar type
 export type AuthProviderProps = {
   children: React.ReactNode;
 };
 
 export type AuthContextProps = {
   accessToken: string;
-  user: object;
+  user: TypeUser;
   login: (accessToken: string) => void;
   logout: () => void;
   updateUser: (key: string, value: string) => void;
 };
 
-const initialData = {
-  accessToken: '',
-  user: {},
-  login: (accessToken: string) => {
-    console.log(accessToken);
-  },
-  logout: () => {},
-  updateUser: (key: string, value: string) => {
-    console.log(key);
-    console.log(value);
-  },
-};
+// const initialUser = {
+//   id: 1,
+//   username: '',
+//   email: '',
+//   provider: '',
+//   confirmed: true,
+//   blocked: false,
+//   createdAt: '',
+//   updatedAt: '',
+//   firstName: null,
+//   lastName: null,
+// };
+
+// const initialData = {
+//   accessToken: '',
+//   user: initialUser,
+//   login: (accessToken: string) => {
+//     console.log(accessToken);
+//   },
+//   logout: () => {},
+//   updateUser: (key: string, value: string) => {
+//     console.log(key);
+//     console.log(value);
+//   },
+// };
 
 const tokenCtrl = new Token();
 const userCtrl = new User();
 
-export const AuthContext = createContext(initialData);
+export const AuthContext = createContext<AuthContextProps | null>(null);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState({});
-  const [accessToken, setAccessToken] = useState('');
+  const [user, setUser] = useState(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -74,8 +89,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const logout = () => {
     tokenCtrl.removeToken();
-    setAccessToken('');
-    setUser('');
+    setAccessToken(null);
+    setUser(null);
   };
 
   const updateUser = (key: string, value: string) => {
