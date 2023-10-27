@@ -1,0 +1,40 @@
+.gridGames {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
+  gap: 20px;
+
+  .game {
+    margin-top: 10px;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    > div {
+      position: relative;
+
+      &:last-of-type {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      > img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
+
+      .discount {
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+      }
+
+      .price {
+        font-size: 18px;
+      }
+    }
+  }
+}
