@@ -12,6 +12,7 @@ export const ENV = {
     },
     PLATFORM: process.env.NEXT_PUBLIC_PLATFORM,
     ADDRESS: process.env.NEXT_PUBLIC_ADDRESS,
+    GAMES: process.env.NEXT_PUBLIC_GAMES,
   },
   TOKEN: 'token',
 };
