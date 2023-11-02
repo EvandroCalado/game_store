@@ -59,4 +59,43 @@ export class Game {
 
     return result;
   }
+
+  async searchGames(text: string, page: string) {
+    const filters = `filters[title][$contains]=${text}`;
+    const pagination = `pagination[page]=${page}&pagination[pageSize]=6`;
+    const populate = 'populate=*';
+
+    const urlParams = `${filters}&${pagination}&${populate}`;
+
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAMES}?${urlParams}`;
+
+    const response = await fetch(url);
+
+    const result = await response.json();
+
+    if (response.status !== 200) throw result;
+
+    return result;
+  }
+
+  async getBySlug(slug: string) {
+    const filters = `filters[slug][$eq]=${slug}`;
+
+    const populateGame =
+      'populate[0]=wallpaper&populate[1]=cover&populate[2]=screenshots&populate[3]=platform';
+    const populatePlatform = 'populate[4]=platform.icon';
+    const populates = `${populateGame}&${populatePlatform}`;
+
+    const urlParams = `${filters}&${populates}`;
+
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAMES}?${urlParams}`;
+
+    const response = await fetch(url);
+
+    const result = await response.json();
+
+    if (response.status !== 200) throw result;
+
+    return result;
+  }
 }

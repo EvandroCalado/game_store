@@ -1,4 +1,5 @@
 import { useContext } from 'react';
-import { AuthContext } from '../contexts';
+import { AuthContext, AuthContextProps } from '../contexts';
 
-export const useAuth = () => useContext(AuthContext);
+// TODO: Consertar type
+export const useAuth = (): AuthContextProps => useContext(AuthContext);

@@ -15,7 +15,7 @@ export function GridGames({ games }: GridGamesProps) {
     <div className={styles.gridGames}>
       {map(games.data, (game) => (
         <Link
-          href={`/games/${game.attributes.slug}`}
+          href={`/${game.attributes.slug}`}
           key={game.id}
           className={styles.game}
         >
